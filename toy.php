@@ -20,11 +20,12 @@
 	function get_toy_plus_manuf(PDO $pdo, string $id) {
 
 		// SQL query to retrieve toy information based on the toy ID
-		$sql = "SELECT toy.name as toyname, 
-		manuf.name as manname, * 
+		$sql = "SELECT toy.name as toyname, toy.toynum, toy.manid, toy.price, toy.agerange, toy.soldytd, toy.numinstock, toy.imgSrc, toy.description, 
+		manuf.name as manname, manuf.manid, manuf.Street, manuf.City, mauf.State, manuf.ZipCode, manuf.phone, manuf.contact 
 		FROM toy
-		INNER JOIN manuf ON toy.manid=manuf.manid
-		WHERE toynum= :id";	// inner joins by matching manufacturing IDs
+		INNER JOIN manuf 
+		ON toy.manid=manuf.manid
+		WHERE toy.toynum= :id;";	// inner joins by matching manufacturing IDs
 
 		// Execute the SQL query using the pdo function and fetch the result
 		$toy = pdo($pdo, $sql, ['id' => $id])->fetch();		// Associative array where 'id' is the key and $id is the value. Used to bind the value of $id to the placeholder :id in  SQL query.
