@@ -21,7 +21,7 @@
 
 		// SQL query to retrieve toy information based on the toy ID
 		$sql = "SELECT toy.name as toyname, toy.toynum, toy.manid, toy.price, toy.agerange, toy.soldytd, toy.numinstock, toy.imgSrc, toy.description, 
-		manuf.name as manname, manuf.manid, manuf.Street, manuf.City, mauf.State, manuf.ZipCode, manuf.phone, manuf.contact 
+		manuf.name as manname, manuf.manid, manuf.Street, manuf.City, manuf.State, manuf.ZipCode, manuf.phone, manuf.contact 
 		FROM toy
 		INNER JOIN manuf 
 		ON toy.manid=manuf.manid
